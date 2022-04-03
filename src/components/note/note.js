@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleImportanceOf } from "../../reducers/noteReducer";
 import { FcBookmark } from "react-icons/fc";
+import css from "./styles.module.css";
 
 export const Note = () => {
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.notes);
   const dispatch = useDispatch();
 
   const toggleImportance = (id) => {
@@ -13,9 +14,9 @@ export const Note = () => {
   return (
     <ul>
       {state.map((note) => (
-        <div style={{ display: "flex" }}>
+        <div className={css.containerNote}>
           <li onClick={() => toggleImportance(note.id)} key={note.id}>
-            {note.content}
+            <p>{note.content}</p>
           </li>
           {note.important && (
             <p style={{ margin: 0 }}>

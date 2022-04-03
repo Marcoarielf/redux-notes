@@ -1,6 +1,13 @@
-export const noteReducer = (state = [], action) => {
+const initialState = [
+  {
+    content: "Let`s doing something great",
+    id: 1,
+    important: true,
+  },
+];
+
+export const noteReducer = (state = initialState, action) => {
   if (action.type === "NEW_NOTE") {
-    // return state.concat(action.payload);
     return [...state, action.payload];
   }
   if (action.type === "TOGGLE_IMPORTANCE") {

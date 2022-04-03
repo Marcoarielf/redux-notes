@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 export default function ImportantNote() {
   const importantNotes = useSelector((state) =>
-    state.filter((notes) => notes.important)
+    state.notes.filter((notes) => notes.important)
   );
 
   if (importantNotes.length === 0) return;
